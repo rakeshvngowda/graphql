@@ -1,15 +1,15 @@
 const express = require("express");
 require("dotenv").config();
 
-const graphqlHTTP = require("express-graphql");
-
+const { graphqlHTTP } = require("express-graphql");
+const schema = require("./schema/schema");
 const app = express();
 
 // bind the express with graphql
 app.use(
   "/graphql",
   graphqlHTTP({
-    // pass in a schema property
+    schema,
   })
 );
 
